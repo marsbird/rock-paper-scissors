@@ -17,7 +17,7 @@ function getOpponentMove() {
 }
 
 function playRockPaperScissors(playerMove, opponentMove) {
-  let errorMessage = `This is rock paper scissors, not rock paper ${playerMove}! Try again!"`;
+  let errorMessage = `This is rock paper scissors, not rock paper ${playerMove}! Try again!`;
   // clean inputs
   playerMove = playerMove.toLowerCase();
   opponentMove = opponentMove.toLowerCase();
