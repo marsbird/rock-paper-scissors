@@ -92,7 +92,7 @@ function playGame() {
 
   // log end message
   if (playerScore == 3) {
-    console.log("YOU WIN!");
+    console.log("YOU WIN! Your skill is truly unmatched.");
   } else if (opponentScore == 3) {
     console.log("Too bad. How about another game?");
   }
