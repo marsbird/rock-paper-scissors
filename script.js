@@ -5,13 +5,13 @@ function getOpponentMove() {
   let opponentMove;
   switch (randNum) {
     case 0:
-      opponentMove = "rock";
+      return "rock";
       break;
     case 1:
-      opponentMove = "paper";
+      return "paper";
       break;
     case 2:
-      opponentMove = "scissors";
+      return "scissors";
       break;
   }
 }
