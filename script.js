@@ -1,17 +1,17 @@
 // randomize opponent's move
-function getComputerChoice() {
+function getOpponentMove() {
   // random 0,1,2
   let randNum = Math.floor(Math.random() * 3);
-  let oppMove;
+  let opponentMove;
   switch (randNum) {
     case 0:
-      oppMove = "rock";
+      opponentMove = "rock";
       break;
     case 1:
-      oppMove = "paper";
+      opponentMove = "paper";
       break;
     case 2:
-      oppMove = "scissors";
+      opponentMove = "scissors";
       break;
   }
 }
