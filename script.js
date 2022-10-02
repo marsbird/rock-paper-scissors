@@ -76,12 +76,13 @@ function playGame() {
     result = playRound(playerMove, getOpponentMove());
     console.log(result);
 
-    // update score
+    // update & log score
     regexPattern = /win/;
     if (regexPattern.test(result)) {
       playerScore++;
     } else {
       opponentScore++;
     }
+    console.log(`Current score ${playerScore} to ${opponentScore}`)
   }
 }
