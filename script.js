@@ -67,6 +67,9 @@ function playGame() {
   let playerScore = 0;
   let opponentScore = 0;
 
+  // log start message
+  console.log("Let's play! Best three out of five wins");
+
   // play a series of rounds, best out of five
   while (playerScore < 3 && opponentScore < 3) {
     // prompt for player's move
@@ -85,5 +88,12 @@ function playGame() {
       opponentScore++;
     }
     console.log(`Current score ${playerScore} to ${opponentScore}`);
+  }
+
+  // log end message
+  if (playerScore == 3) {
+    console.log("YOU WIN!");
+  } else if (opponentScore == 3) {
+    console.log("Too bad. How about another game?");
   }
 }
