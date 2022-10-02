@@ -16,11 +16,13 @@ function getOpponentMove() {
   }
 }
 
-function playRockPaperScissors(playerMove, opponentMove) {
+function playRound(playerMove, opponentMove) {
+  // return this message if a player inputs their move incorrectly
   let errorMessage = `This is rock paper scissors, not rock paper ${playerMove}! Try again!`;
   // clean inputs
   playerMove = playerMove.toLowerCase();
   opponentMove = opponentMove.toLowerCase();
+  // return results of the round
   if (playerMove == "rock") {
     switch (opponentMove) {
       case "rock":
@@ -58,6 +60,28 @@ function playRockPaperScissors(playerMove, opponentMove) {
         break;
     }
   } else return errorMessage;
+}
 
-  // return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
+function playGame() {
+  //   initialize scores
+  let playerScore = 0;
+  let opponentScore = 0;
+
+  // play a series of rounds, best out of five
+  while (playerScore < 3 || opponentScore < 3) {
+    // prompt for player's move
+    let playerMove = prompt("What's your move?");
+
+    // play round & log result
+    result = playRound(playerMove, getOpponentMove());
+    console.log(result);
+
+    // update score
+    regexPattern = /win/;
+    if (regexPattern.match(result)) {
+      playerScore++;
+    } else {
+      opponentScore++;
+    }
+  }
 }
