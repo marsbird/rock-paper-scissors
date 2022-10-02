@@ -68,7 +68,7 @@ function playGame() {
   let opponentScore = 0;
 
   // play a series of rounds, best out of five
-  while (playerScore < 3 || opponentScore < 3) {
+  while (playerScore < 3 && opponentScore < 3) {
     // prompt for player's move
     let playerMove = prompt("What's your move?");
 
@@ -84,6 +84,6 @@ function playGame() {
     } else if (regexPatternLose.test(result)) {
       opponentScore++;
     }
-    console.log(`Current score ${playerScore} to ${opponentScore}`)
+    console.log(`Current score ${playerScore} to ${opponentScore}`);
   }
 }
