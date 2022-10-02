@@ -77,10 +77,11 @@ function playGame() {
     console.log(result);
 
     // update & log score
-    regexPattern = /win/;
-    if (regexPattern.test(result)) {
+    regexPatternWin = /win/;
+    regexPatternLose = /lose/;
+    if (regexPatternWin.test(result)) {
       playerScore++;
-    } else {
+    } else if (regexPatternLose.test(result)) {
       opponentScore++;
     }
     console.log(`Current score ${playerScore} to ${opponentScore}`)
