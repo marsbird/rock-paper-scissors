@@ -1,5 +1,5 @@
 // style for console logs
-let style = "font-size: 18pt"
+let style = "font-size: 18pt";
 
 // randomize opponent's move
 function getOpponentMove() {
@@ -71,7 +71,7 @@ function playGame() {
   let opponentScore = 0;
 
   // log start message
-  console.log("%cLet's play! Best three out of five wins",style);
+  console.log("%cLet's play! Best three out of five wins", style);
 
   // play a series of rounds, best out of five
   while (playerScore < 3 && opponentScore < 3) {
@@ -80,7 +80,7 @@ function playGame() {
 
     // play round & log result
     result = playRound(playerMove, getOpponentMove());
-    console.log("%c"+result,style);
+    console.log("%c" + result, style);
 
     // update & log score
     regexPatternWin = /win/;
@@ -90,13 +90,13 @@ function playGame() {
     } else if (regexPatternLose.test(result)) {
       opponentScore++;
     }
-    console.log(`%cCurrent score ${playerScore} to ${opponentScore}`,style);
+    console.log(`%cCurrent score ${playerScore} to ${opponentScore}`, style);
   }
 
   // log end message
   if (playerScore == 3) {
-    console.log("%cYOU WIN! Your skill is truly unmatched.",style);
+    console.log("%cYOU WIN! Your skill is truly unmatched.", style);
   } else if (opponentScore == 3) {
-    console.log("%cToo bad. How about another game?",style);
+    console.log("%cToo bad. How about another game?", style);
   }
 }
