@@ -78,7 +78,7 @@ function playGame() {
 
     // update score
     regexPattern = /win/;
-    if (regexPattern.match(result)) {
+    if (regexPattern.test(result)) {
       playerScore++;
     } else {
       opponentScore++;
