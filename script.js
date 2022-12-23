@@ -1,8 +1,8 @@
 // randomize opponent's move
 function getOpponentMove() {
   // random 0,1,2
-  let randNum = Math.floor(Math.random() * 3);
-  switch (randNum) {
+  let OpponentMove = Math.floor(Math.random() * 3);
+  switch (OpponentMove) {
     case 0:
       return "rock";
       break;
