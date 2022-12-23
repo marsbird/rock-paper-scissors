@@ -15,6 +15,16 @@ function getOpponentMove() {
   }
 }
 
+function getPlayerMove() {
+  // prompt for player's move and set to lowercase
+  let playerMove = prompt("What's your move?").toLowerCase();
+  if (["rock", "paper", "scissors"].includes(playerMove)) {
+    return playerMove;
+  }
+  else {
+    console.log(`This is rock paper scissors, not rock paper ${playerMove}! Try again!`);
+  }
+}
 function playRound(playerMove, opponentMove) {
   // return this message if a player inputs their move incorrectly
   let errorMessage = `This is rock paper scissors, not rock paper ${playerMove}! Try again!`;
