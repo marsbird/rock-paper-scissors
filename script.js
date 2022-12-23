@@ -25,12 +25,9 @@ function getPlayerMove() {
     console.log(`This is rock paper scissors, not rock paper ${playerMove}! Try again!`);
   }
 }
+
 function playRound(playerMove, opponentMove) {
-  // return this message if a player inputs their move incorrectly
-  let errorMessage = `This is rock paper scissors, not rock paper ${playerMove}! Try again!`;
-  // clean inputs
-  playerMove = playerMove.toLowerCase();
-  opponentMove = opponentMove.toLowerCase();
+
   // return results of the round
   if (playerMove == "rock") {
     switch (opponentMove) {
@@ -69,40 +66,4 @@ function playRound(playerMove, opponentMove) {
         break;
     }
   } else return errorMessage;
-}
-
-function playGame() {
-  //   initialize scores
-  let playerScore = 0;
-  let opponentScore = 0;
-
-  // log start message
-  console.log("Let's play! Best three out of five wins");
-
-  // play a series of rounds, best out of five
-  while (playerScore < 3 && opponentScore < 3) {
-    // prompt for player's move
-    let playerMove = prompt("What's your move?");
-
-    // play round & log result
-    result = playRound(playerMove, getOpponentMove());
-    console.log(result);
-
-    // update & log score
-    regexPatternWin = /win/;
-    regexPatternLose = /lose/;
-    if (regexPatternWin.test(result)) {
-      playerScore++;
-    } else if (regexPatternLose.test(result)) {
-      opponentScore++;
-    }
-    console.log(`Current score ${playerScore} to ${opponentScore}`);
-  }
-
-  // log end message
-  if (playerScore == 3) {
-    console.log("YOU WIN! Your skill is truly unmatched.");
-  } else if (opponentScore == 3) {
-    console.log("Too bad. How about another game?");
-  }
 }
