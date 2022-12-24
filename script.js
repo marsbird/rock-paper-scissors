@@ -1,8 +1,7 @@
-// randomize opponent's move
-function getOpponentMove() {
+function getOppMove() {
   // random 0,1,2
-  let OpponentMove = Math.floor(Math.random() * 3);
-  switch (OpponentMove) {
+  let oppMove = Math.floor(Math.random() * 3);
+  switch (oppMove) {
     case 0:
       return "rock";
       break;
@@ -15,65 +14,47 @@ function getOpponentMove() {
   }
 }
 
-function playRound(playerMove) {
+const btns = document.querySelectorAll("button");
+const results = document.querySelector("#results");
 
-  let opponentMove = getOpponentMove()
-
-  // return results of the round
-  if (playerMove == "rock") {
-    switch (opponentMove) {
-      case "rock":
-        return "Tie! Let's play again";
-        break;
-      case "paper":
-        return "You lose! Paper covers rock";
-        break;
-      case "scissors":
-        return "You win! Rock breaks scissors";
-        break;
-    }
-  } else if (playerMove == "paper") {
-    switch (opponentMove) {
-      case "rock":
-        return "You win! Paper covers rock";
-        break;
-      case "paper":
-        return "Tie! Let's play again";
-        break;
-      case "scissors":
-        return "You lose! Scissors cuts paper";
-        break;
-    }
-  } else if (playerMove == "scissors") {
-    switch (opponentMove) {
-      case "rock":
-        return "You lose! Rock breaks scissors";
-        break;
-      case "paper":
-        return "You win! Scissors cuts paper";
-        break;
-      case "scissors":
-        return "Tie! Let's play again";
-        break;
-    }
+function playRound(e) {
+  // get move selection from both player and opponent
+  let playerMove = e.target.id;
+  let oppMove = getOppMove();
+  // combine both moves into a single string
+  let bothMoves = playerMove+oppMove;
+  // compare moves
+  switch (bothMoves) {
+    case "rockrock":
+    results.textContent = "Tie!";
+    break;
+    case "paperpaper":
+    results.textContent = "Tie!";
+    break;
+    case "scissorsscissors":
+    results.textContent = "Tie!";
+    break;
+    case "rockpaper":
+    results.textContent = "You win!";
+    break;
+    case "rockscissors":
+    results.textContent = "You lose!";
+    break;
+    case "paperrock":
+    results.textContent = "You win!";
+    break;
+    case "paperscissors":
+    results.textContent = "You lose!";
+    break;
+    case "scissorspaper":
+    results.textContent = "You win!";
+    break;
+    case "scissorsrock":
+    results.textContent = "You lose!";
+    break;
   }
 }
 
-const btnRock = document.querySelector("#rock");
-const btnPaper = document.querySelector("#paper");
-const btnScissors = document.querySelector("#scissors");
-
-const results = document.querySelector("#results");
-
-
-btnRock.addEventListener("click", () => {
-  results.textContent = playRound("rock");
-});
-
-btnPaper.addEventListener("click", () => {
-  results.textContent = playRound("paper");
-});
-
-btnScissors.addEventListener("click", () => {
-  results.textContent = playRound("scissors");
+btns.forEach((btn) => {
+  btn.addEventListener("click", playRound);
 });
