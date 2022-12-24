@@ -60,19 +60,20 @@ function playRound(playerMove) {
 }
 
 const btnRock = document.querySelector("#rock");
-
-btnRock.addEventListener("click", () => {
-  console.log(playRound("rock"));
-});
-
 const btnPaper = document.querySelector("#paper");
-
-btnPaper.addEventListener("click", () => {
-  console.log(playRound("paper"));
-});
-
 const btnScissors = document.querySelector("#scissors");
 
+const results = document.querySelector("#results");
+
+
+btnRock.addEventListener("click", () => {
+  results.textContent = playRound("rock");
+});
+
+btnPaper.addEventListener("click", () => {
+  results.textContent = playRound("paper");
+});
+
 btnScissors.addEventListener("click", () => {
-  console.log(playRound("scissors"));
+  results.textContent = playRound("scissors");
 });
