@@ -16,6 +16,10 @@ function getOppMove() {
 
 const btns = document.querySelectorAll("button");
 const results = document.querySelector("#results");
+const scoreboard = document.querySelector("#score");
+
+let playerScore = 0;
+let oppScore = 0;
 
 function playRound(e) {
   // get move selection from both player and opponent
@@ -36,25 +40,34 @@ function playRound(e) {
     break;
     case "rockpaper":
     results.textContent = "You win!";
+    playerScore =+ 1;
     break;
     case "rockscissors":
     results.textContent = "You lose!";
+    oppScore =+ 1;
     break;
     case "paperrock":
     results.textContent = "You win!";
+    playerScore =+ 1;
     break;
     case "paperscissors":
     results.textContent = "You lose!";
+    oppScore =+ 1;
     break;
     case "scissorspaper":
     results.textContent = "You win!";
+    playerScore =+ 1;
     break;
     case "scissorsrock":
     results.textContent = "You lose!";
+    oppScore =+ 1;
     break;
   }
+  scoreboard.textContent = `Current Score: ${playerScore} to ${oppScore}`
 }
 
 btns.forEach((btn) => {
   btn.addEventListener("click", playRound);
 });
+
+// TODO it looks like the score won't increase past 1 for some reason, and sometimes nothing happens on click
