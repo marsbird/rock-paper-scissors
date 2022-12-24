@@ -58,3 +58,21 @@ function playRound(playerMove) {
     }
   }
 }
+
+const btnRock = document.querySelector("#rock");
+
+btnRock.addEventListener("click", () => {
+  console.log(playRound("rock"));
+});
+
+const btnPaper = document.querySelector("#paper");
+
+btnPaper.addEventListener("click", () => {
+  console.log(playRound("paper"));
+});
+
+const btnScissors = document.querySelector("#scissors");
+
+btnScissors.addEventListener("click", () => {
+  console.log(playRound("scissors"));
+});
