@@ -65,5 +65,5 @@ function playRound(playerMove, opponentMove) {
         return "Tie! Let's play again";
         break;
     }
-  } else return errorMessage;
+  }
 }
