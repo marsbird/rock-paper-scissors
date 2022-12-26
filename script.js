@@ -1,3 +1,10 @@
+const btns = document.querySelectorAll("button");
+const results = document.querySelector("#results");
+const scoreboard = document.querySelector("#score");
+
+let playerScore = 0;
+let oppScore = 0;
+
 function getOppMove() {
   // random 0,1,2
   let oppMove = Math.floor(Math.random() * 3);
@@ -13,13 +20,6 @@ function getOppMove() {
       break;
   }
 }
-
-const btns = document.querySelectorAll("button");
-const results = document.querySelector("#results");
-const scoreboard = document.querySelector("#score");
-
-let playerScore = 0;
-let oppScore = 0;
 
 function playRound(e) {
   // get move selection from both player and opponent
