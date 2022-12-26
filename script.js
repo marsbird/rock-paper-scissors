@@ -39,28 +39,28 @@ function playRound(e) {
     results.textContent = "Tie!";
     break;
     case "rockpaper":
-    results.textContent = "You win!";
-    playerScore =+ 1;
+    results.textContent = "Paper covers rock - You lose!";
+    oppScore += 1;
     break;
     case "rockscissors":
-    results.textContent = "You lose!";
-    oppScore =+ 1;
+    results.textContent = "Rock breaks scissors - You win!";
+    playerScore += 1;
     break;
     case "paperrock":
-    results.textContent = "You win!";
-    playerScore =+ 1;
+    results.textContent = "Paper covers rock - You win!";
+    playerScore += 1;
     break;
     case "paperscissors":
-    results.textContent = "You lose!";
-    oppScore =+ 1;
+    results.textContent = "Scissors cuts paper - You lose!";
+    oppScore += 1;
     break;
     case "scissorspaper":
-    results.textContent = "You win!";
-    playerScore =+ 1;
+    results.textContent = "Scissors cuts paper - You win!";
+    playerScore += 1;
     break;
     case "scissorsrock":
-    results.textContent = "You lose!";
-    oppScore =+ 1;
+    results.textContent = "Rock breaks scissors - You lose!";
+    oppScore += 1;
     break;
   }
   scoreboard.textContent = `Current Score: ${playerScore} to ${oppScore}`
@@ -69,5 +69,3 @@ function playRound(e) {
 btns.forEach((btn) => {
   btn.addEventListener("click", playRound);
 });
-
-// TODO it looks like the score won't increase past 1 for some reason, and sometimes nothing happens on click
