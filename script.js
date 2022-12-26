@@ -26,44 +26,56 @@ function playRound(e) {
   let playerMove = e.target.id;
   let oppMove = getOppMove();
   // combine both moves into a single string
-  let bothMoves = playerMove+oppMove;
+  let bothMoves = playerMove + oppMove;
   // compare moves
   switch (bothMoves) {
     case "rockrock":
-    results.textContent = "Tie!";
-    break;
+      results.textContent = "Tie!";
+      break;
     case "paperpaper":
-    results.textContent = "Tie!";
-    break;
+      results.textContent = "Tie!";
+      break;
     case "scissorsscissors":
-    results.textContent = "Tie!";
-    break;
+      results.textContent = "Tie!";
+      break;
     case "rockpaper":
-    results.textContent = "Paper covers rock - You lose!";
-    oppScore += 1;
-    break;
+      results.textContent = "Paper covers rock - You lose!";
+      oppScore += 1;
+      break;
     case "rockscissors":
-    results.textContent = "Rock breaks scissors - You win!";
-    playerScore += 1;
-    break;
+      results.textContent = "Rock breaks scissors - You win!";
+      playerScore += 1;
+      break;
     case "paperrock":
-    results.textContent = "Paper covers rock - You win!";
-    playerScore += 1;
-    break;
+      results.textContent = "Paper covers rock - You win!";
+      playerScore += 1;
+      break;
     case "paperscissors":
-    results.textContent = "Scissors cuts paper - You lose!";
-    oppScore += 1;
-    break;
+      results.textContent = "Scissors cuts paper - You lose!";
+      oppScore += 1;
+      break;
     case "scissorspaper":
-    results.textContent = "Scissors cuts paper - You win!";
-    playerScore += 1;
-    break;
+      results.textContent = "Scissors cuts paper - You win!";
+      playerScore += 1;
+      break;
     case "scissorsrock":
-    results.textContent = "Rock breaks scissors - You lose!";
-    oppScore += 1;
-    break;
+      results.textContent = "Rock breaks scissors - You lose!";
+      oppScore += 1;
+      break;
   }
-  scoreboard.textContent = `Current Score: ${playerScore} to ${oppScore}`
+  if (playerScore == 5) {
+    scoreboard.textContent = `${playerScore} to ${oppScore} - YOU WIN!`
+    results.textContent = "";
+    playerScore = 0
+    oppScore = 0
+  } else if (oppScore == 5) {
+    scoreboard.textContent = `${playerScore} to ${oppScore} - Better luck next time!`
+    results.textContent = "";
+    playerScore = 0
+    oppScore = 0
+  } else {
+    scoreboard.textContent = `Current Score: ${playerScore} to ${oppScore}`
+  }
 }
 
 btns.forEach((btn) => {
